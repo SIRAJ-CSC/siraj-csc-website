@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Insurance — SIRAJ CSC Kalaburagi | 2W 3W 4W Heavy</title>
+  <meta name="description" content="Vehicle insurance at SIRAJ CSC Kalaburagi — 2 wheeler, 3 wheeler, 4 wheeler and heavy vehicles. IFFCO-TOKIO, HDFC ERGO, ICICI Lombard, SBI General and more. WhatsApp 8073011337." />
+  <meta property="og:title" content="Vehicle Insurance — SIRAJ CSC" />
+  <meta property="og:url" content="https://sirajcsc.com/insurance.html" />
+  <link rel="canonical" href="https://sirajcsc.com/insurance.html" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* Insurance page additions */
+    .ins-type-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media(min-width:640px){ .ins-type-grid { grid-template-columns: 1fr 1fr; } }
+
+    .ins-type-card {
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: var(--r-lg); padding: 28px 24px;
+      transition: border-color var(--t-fast), box-shadow var(--t-fast);
+    }
+    .ins-type-card:hover { border-color: var(--navy); box-shadow: var(--sh-md); }
+    .ins-type-card h3 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .ins-type-card p  { font-size: 14px; color: var(--text-lt); line-height: 1.7; }
+
+    .process-grid {
+      display: grid; gap: 16px; grid-template-columns: 1fr;
+    }
+    @media(min-width:640px)  { .process-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(min-width:1024px) { .process-grid { grid-template-columns: repeat(4,1fr); } }
+
+    .process-step {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--r-xl); padding: 28px 22px; text-align: center;
+    }
+    .process-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: white;
+      margin: 0 auto 14px;
+    }
+    .process-step h3 { font-size: 15px; font-weight: 800; color: white; margin-bottom: 8px; }
+    .process-step p  { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    /* Vehicle page extra card */
+    .veh-grid-5 { display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media(min-width:480px)  { .veh-grid-5 { grid-template-columns: repeat(2,1fr); } }
+    @media(min-width:768px)  { .veh-grid-5 { grid-template-columns: repeat(3,1fr); } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SIRAJ CSC Home">
+        <img src="assets/brand/siraj-csc-logo.jpg" alt="SIRAJ CSC" class="nav-logo-img" id="nav-logo-img"
+             onerror="this.style.display='none';document.getElementById('nav-logo-fb').style.display='flex';" />
+        <div class="nav-logo-fallback" id="nav-logo-fb">
+          <span class="l-name">SIRAJ CSC</span>
+          <span class="l-tag">ಸಾಮಾನ್ಯ ಸೇವಾ ಕೇಂದ್ರ</span>
+        </div>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="index.html"      class="nav-link">Home</a>
+        <a href="services.html"   class="nav-link">Services</a>
+        <a href="insurance.html"  class="nav-link active" aria-current="page">Insurance</a>
+        <a href="technology.html" class="nav-link">Technology</a>
+        <a href="about.html"      class="nav-link">About</a>
+        <a href="contact.html"    class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:8073011337" class="nav-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          8073011337
+        </a>
+        <a href="https://wa.me/918073011337" class="btn btn-whatsapp btn-sm nav-cta" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
+    <a href="index.html"      class="nav-link">Home</a>
+    <a href="services.html"   class="nav-link">Services</a>
+    <a href="insurance.html"  class="nav-link active">Insurance</a>
+    <a href="technology.html" class="nav-link">Technology</a>
+    <a href="about.html"      class="nav-link">About</a>
+    <a href="contact.html"    class="nav-link">Contact</a>
+    <a href="https://wa.me/918073011337" class="btn btn-whatsapp wa-drawer-btn" target="_blank" rel="noopener noreferrer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      WhatsApp 8073011337
+    </a>
+  </nav>
+
+  <a href="https://wa.me/918073011337" class="wa-fab" aria-label="WhatsApp SIRAJ CSC" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="pg-hero" aria-labelledby="ins-h1">
+      <div class="container">
+        <div class="t-label t-label--light" style="margin-bottom:16px;">Vehicle Insurance Assistance</div>
+        <h1 id="ins-h1">2 Wheeler · 3 Wheeler · 4 Wheeler<br/>Commercial &amp; Heavy Vehicles</h1>
+        <p>Insurance assistance through multiple providers. Walk in or WhatsApp for a quick quote — 8073011337.</p>
+
+        <!-- Insurance poster — shown as premium visual reference -->
+        <div style="margin-top:32px;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-xl);max-width:940px;">
+          <img src="assets/posters/insurance-poster.jpg"
+               alt="SIRAJ CSC vehicle insurance — 2 wheeler motorcycle, 3 wheeler auto-rickshaw, 4 wheeler car with insurer logos: IFFCO-TOKIO, HDFC ERGO, ICICI Lombard, SBI General, Chola MS, Oriental, Reliance, Bajaj Allianz, Universal Sompo, Shriram"
+               style="width:100%;height:auto;display:block;"
+               onerror="this.parentElement.style.display='none';" />
+        </div>
+      </div>
+    </section>
+
+    <!-- VEHICLE CATEGORIES -->
+    <section class="section section-white" id="vehicles" aria-labelledby="veh-h2">
+      <div class="container">
+        <div class="t-label">Vehicle Categories</div>
+        <h2 class="t-h2" id="veh-h2" style="margin-top:10px;margin-bottom:10px;">All Vehicle Types Covered</h2>
+        <p class="t-body" style="margin-bottom:40px;">From motorcycles to heavy commercial vehicles — insurance assistance available for all categories.</p>
+
+        <div class="veh-grid-5">
+
+          <div class="veh-card reveal" id="ins-2w">
+            <div class="veh-img vi-bike">
+              <img src="assets/vehicles/bike.jpg"
+                   alt="Red motorcycle — two wheeler insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">2 Wheeler</span>
+              <h3>Two Wheeler Insurance</h3>
+              <p>Motorcycles and scooters. Third party mandatory cover or comprehensive insurance available.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20two%20wheeler%20insurance%20quote" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="ins-2w-btn">Get Quote</a>
+            </div>
+          </div>
+
+          <div class="veh-card reveal reveal-delay-1" id="ins-3w">
+            <div class="veh-img vi-auto">
+              <img src="assets/vehicles/auto.jpg"
+                   alt="Yellow auto-rickshaw — three wheeler insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">3 Wheeler</span>
+              <h3>Three Wheeler Insurance</h3>
+              <p>Auto-rickshaws and three-wheelers — commercial passenger vehicle cover.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20three%20wheeler%20insurance%20quote" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="ins-3w-btn">Get Quote</a>
+            </div>
+          </div>
+
+          <div class="veh-card reveal reveal-delay-2" id="ins-4w">
+            <div class="veh-img vi-car">
+              <img src="assets/vehicles/car.jpg"
+                   alt="Maruti Swift white car — four wheeler insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">4 Wheeler</span>
+              <h3>Four Wheeler Insurance</h3>
+              <p>Private cars and personal vehicles — comprehensive and third party options.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20four%20wheeler%20insurance%20quote" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="ins-4w-btn">Get Quote</a>
+            </div>
+          </div>
+
+          <div class="veh-card reveal reveal-delay-3" id="ins-commercial">
+            <div class="veh-img vi-heavy">
+              <img src="assets/vehicles/heavy.jpg"
+                   alt="Commercial vehicle — goods carrier insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">Commercial</span>
+              <h3>Commercial Vehicle</h3>
+              <p>Pickup trucks, goods carriers and small commercial vehicles for trade and transport.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20commercial%20vehicle%20insurance" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="ins-comm-btn">Get Quote</a>
+            </div>
+          </div>
+
+          <div class="veh-card reveal reveal-delay-4" id="ins-heavy">
+            <div class="veh-img vi-heavy">
+              <img src="assets/vehicles/bike.jpg"
+                   style="object-position: 80% center;"
+                   alt="Heavy vehicle insurance SIRAJ CSC Kalaburagi"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">Heavy Vehicle</span>
+              <h3>Heavy Vehicle Insurance</h3>
+              <p>Large trucks, lorries and heavy commercial vehicles — complete cover for goods and passenger transport.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20heavy%20vehicle%20insurance" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="ins-heavy-btn">Get Quote</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COVERAGE TYPES -->
+    <section class="section section-light" id="coverage" aria-labelledby="cov-h2">
+      <div class="container">
+        <div class="t-label t-label--green">Coverage Options</div>
+        <h2 class="t-h2" id="cov-h2" style="margin-top:10px;margin-bottom:10px;">Insurance Coverage Types</h2>
+        <p class="t-body" style="margin-bottom:36px;">We assist with both mandatory third party and comprehensive insurance options.</p>
+        <div class="ins-type-grid">
+          <div class="ins-type-card reveal" id="cov-tp">
+            <div class="t-label" style="margin-bottom:12px;">Mandatory by Law</div>
+            <h3>Third Party Insurance</h3>
+            <p>Mandatory for all vehicles under Indian Motor Vehicles Act. Covers damage or injury caused to a third party. Minimum legal requirement for every vehicle owner on Indian roads.</p>
+          </div>
+          <div class="ins-type-card reveal reveal-delay-1" id="cov-comp">
+            <div class="t-label t-label--orange" style="margin-bottom:12px;">Recommended</div>
+            <h3>Comprehensive Insurance</h3>
+            <p>Covers third party liability AND damage to your own vehicle — from accidents, theft, fire, natural calamities and other risks. Strongly recommended for all vehicle owners for complete protection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSURANCE PROVIDERS -->
+    <section class="section section-white" id="providers" aria-labelledby="prov-h2">
+      <div class="container">
+        <div class="t-label">Insurance Providers</div>
+        <h2 class="t-h2" id="prov-h2" style="margin-top:10px;margin-bottom:10px;">Insurers We Work With</h2>
+        <p class="t-body" style="margin-bottom:36px;">We assist with vehicle insurance from multiple established insurance companies as shown in our promotional materials.</p>
+
+        <div class="ins-grid">
+          <div class="ins-card reveal" id="ins-iffco">
+            <img src="assets/insurers/iffco-tokio.jpg" alt="IFFCO-TOKIO General Insurance" loading="lazy" />
+            <div class="ins-card-sub">IFFCO-TOKIO General Insurance</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-1" id="ins-hdfc">
+            <img src="assets/insurers/hdfc-ergo.jpg" alt="HDFC ERGO General Insurance" loading="lazy" />
+            <div class="ins-card-sub">HDFC ERGO General Insurance</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-2" id="ins-icici">
+            <img src="assets/insurers/icici-lombard.jpg" alt="ICICI Lombard General Insurance" loading="lazy" />
+            <div class="ins-card-sub">ICICI Lombard General Insurance</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-3" id="ins-sbi">
+            <img src="assets/insurers/sbi-general.jpg" alt="SBI General Insurance" loading="lazy" />
+            <div class="ins-card-sub">SBI General — Suraksha Aur Bharosa Dono</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-4" id="ins-chola">
+            <img src="assets/insurers/chola-ms.jpg" alt="Chola MS General Insurance" loading="lazy" />
+            <div class="ins-card-sub">Chola MS General Insurance</div>
+          </div>
+          <div class="ins-card reveal" id="ins-oriental">
+            <img src="assets/insurers/oriental.jpg" alt="Oriental Insurance Company" loading="lazy" />
+            <div class="ins-card-sub">Oriental Insurance Co. Ltd.</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-1" id="ins-reliance">
+            <img src="assets/insurers/reliance.jpg" alt="Reliance General Insurance" loading="lazy" />
+            <div class="ins-card-sub">Reliance General Insurance</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-2" id="ins-bajaj">
+            <img src="assets/insurers/bajaj-allianz.jpg" alt="Bajaj Allianz General Insurance" loading="lazy" />
+            <div class="ins-card-sub">Bajaj Allianz General Insurance</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-3" id="ins-sompo">
+            <img src="assets/insurers/universal-sompo.jpg" alt="Universal Sompo General Insurance" loading="lazy" />
+            <div class="ins-card-sub">Universal Sompo General Insurance</div>
+          </div>
+          <div class="ins-card reveal reveal-delay-4" id="ins-shriram">
+            <img src="assets/insurers/shriram.jpg" alt="Shriram General Insurance" loading="lazy" />
+            <div class="ins-card-sub">Shriram General — Be Insured · Rest Assured</div>
+          </div>
+        </div>
+
+        <p style="margin-top:24px;font-size:12px;color:var(--text-xs);max-width:720px;line-height:1.65;">
+          Insurance providers listed are as shown in SIRAJ CSC promotional materials. SIRAJ CSC assists with insurance enquiries and application support. We are not an official authorized agent, dealer or exclusive partner of any insurer listed. Insurance subject to availability and insurer terms and conditions.
+        </p>
+      </div>
+    </section>
+
+    <!-- HOW TO GET INSURED -->
+    <section class="section section-deep" id="process" aria-labelledby="proc-h2">
+      <div class="container">
+        <div class="t-label t-label--light" style="display:inline-flex;margin-bottom:16px;">How It Works</div>
+        <h2 class="t-h2 text-white" id="proc-h2" style="margin-bottom:10px;">Getting Insured Is Simple</h2>
+        <p style="color:rgba(255,255,255,0.6);margin-bottom:40px;font-size:15px;">Walk in or WhatsApp 8073011337 and we'll guide you through the entire process.</p>
+        <div class="process-grid">
+          <div class="process-step reveal"><div class="process-num">1</div><h3>Contact Us</h3><p>Walk in or WhatsApp with your vehicle details — registration number, type, and any existing insurance information.</p></div>
+          <div class="process-step reveal reveal-delay-1"><div class="process-num">2</div><h3>Share Details</h3><p>Provide vehicle registration, type, and existing insurance info. We'll identify what's needed for your case.</p></div>
+          <div class="process-step reveal reveal-delay-2"><div class="process-num">3</div><h3>Get Options</h3><p>We'll assist with available insurance options from our provider network — third party or comprehensive.</p></div>
+          <div class="process-step reveal reveal-delay-3"><div class="process-num">4</div><h3>Get Your Policy</h3><p>Complete the application and receive your insurance policy document. Fast turnaround for most vehicles.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-navy" id="ins-cta" aria-label="Insurance CTA">
+      <div class="container" style="text-align:center;">
+        <h2 class="t-h2 text-white" style="margin-bottom:12px;">Need a Vehicle Insurance Quote?</h2>
+        <p style="color:rgba(255,255,255,0.65);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;font-size:15px;">WhatsApp or visit our Kalaburagi centre. Quick response for all vehicle types — 2W, 3W, 4W, commercial and heavy.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="https://wa.me/918073011337?text=I%20need%20a%20vehicle%20insurance%20quote" class="btn btn-whatsapp btn-xl" target="_blank" rel="noopener noreferrer" id="ins-final-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp for Quote
+          </a>
+          <a href="tel:8073011337" class="btn btn-ghost btn-xl" id="ins-final-call">Call 8073011337</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <img src="assets/brand/siraj-csc-logo.jpg" alt="SIRAJ CSC" class="footer-logo-img" onerror="this.style.display='none';" />
+          <p class="footer-tagline">ಸಾಮಾನ್ಯ ಸೇವಾ ಕೇಂದ್ರ — Your Trusted Neighbourhood Kiosk</p>
+          <div class="footer-addr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ring Road, NH50, Kalaburagi – 585104</div>
+          <div class="footer-tel"><a href="tel:8073011337">8073011337</a></div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html" class="footer-link">All Services</a></li>
+            <li><a href="insurance.html" class="footer-link">Vehicle Insurance</a></li>
+            <li><a href="services.html#banking" class="footer-link">Banking &amp; AEPS</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Pages</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"   class="footer-link">Home</a></li>
+            <li><a href="about.html"   class="footer-link">About</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms.html"   class="footer-link">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 SIRAJ CSC. All rights reserved.</p>
+        <p class="footer-notice">Insurance assistance only — not an authorized insurer agent or official dealer.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

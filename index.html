@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIRAJ CSC — ಸಾಮಾನ್ಯ ಸೇವಾ ಕೇಂದ್ರ | Kalaburagi</title>
+  <meta name="description" content="SIRAJ CSC — Your Trusted Neighbourhood Kiosk in Kalaburagi. Aadhaar, PAN, Banking, AEPS, Insurance, IRCTC, Certificates and more. WhatsApp: 8073011337." />
+  <meta property="og:title" content="SIRAJ CSC — Digital Services Made Simple" />
+  <meta property="og:description" content="Government, financial, insurance and document services at your neighbourhood CSC in Kalaburagi, Karnataka." />
+  <meta property="og:url" content="https://sirajcsc.com/" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://sirajcsc.com/" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ── Index-only overrides ── */
+    .hero-left { padding-left: 48px; }
+    @media(max-width:1023px){ .hero-left { padding-left: 0; } }
+
+    /* Service strip divider */
+    .strip-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+
+    /* Featured section: Insurance preview */
+    .ins-preview {
+      display: grid; gap: 20px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:640px)  { .ins-preview { grid-template-columns: repeat(2,1fr); } }
+    @media(min-width:1024px) { .ins-preview { grid-template-columns: repeat(4,1fr); } }
+
+    /* Feature banner (2-col promo) */
+    .promo-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media(min-width:768px) { .promo-grid { grid-template-columns: 3fr 2fr; } }
+
+    .promo-card {
+      border-radius: 20px; overflow: hidden; position: relative;
+      min-height: 200px; display: flex; align-items: flex-end;
+      padding: 28px; text-decoration: none;
+      transition: transform 0.3s var(--ease);
+    }
+    .promo-card:hover { transform: translateY(-4px); }
+    .promo-card-bg {
+      position: absolute; inset: 0;
+      transition: transform 0.5s var(--ease);
+    }
+    .promo-card:hover .promo-card-bg { transform: scale(1.04); }
+
+    .promo-navy { background: var(--navy); }
+    .promo-green { background: #0B5E3E; }
+
+    .promo-body { position: relative; z-index: 1; }
+    .promo-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+    .promo-title { font-size: 20px; font-weight: 900; color: white; margin-bottom: 6px; line-height: 1.2; }
+    .promo-desc { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+    .promo-arrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9);
+    }
+    .promo-arrow svg { width: 14px; height: 14px; transition: transform var(--ease) 0.15s; }
+    .promo-card:hover .promo-arrow svg { transform: translateX(4px); }
+
+    /* Vehicle image tint for promo */
+    .promo-veh-img {
+      position: absolute; inset: 0;
+      background: url('assets/posters/insurance-poster.jpg') center 60% / cover no-repeat;
+      opacity: 0.25;
+    }
+    .promo-meity-img {
+      position: absolute; inset: 0;
+      background: url('assets/posters/meity-services.jpg') center center / cover no-repeat;
+      opacity: 0.18;
+    }
+
+    /* Step process */
+    .steps { display: grid; gap: 16px; grid-template-columns: 1fr; }
+    @media(min-width:640px)  { .steps { grid-template-columns: repeat(2,1fr); } }
+    @media(min-width:1024px) { .steps { grid-template-columns: repeat(4,1fr); } }
+
+    .step-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px; padding: 28px 22px;
+    }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 900; color: white;
+      margin-bottom: 16px;
+    }
+    .step-card h3 { font-size: 15px; font-weight: 800; color: white; margin-bottom: 7px; }
+    .step-card p  { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.65; }
+
+    /* AEPS callout */
+    .aeps-callout {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dk) 100%);
+      border-radius: 20px; padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    @media(min-width:768px){
+      .aeps-callout { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    .aeps-callout h3 { font-size: clamp(18px,3vw,24px); font-weight: 900; color: white; }
+    .aeps-callout p  { font-size: 14px; color: rgba(255,255,255,0.8); }
+
+    /* Brand note */
+    .brand-note {
+      font-size: 12px; color: var(--text-xs);
+      background: var(--light-grey); border: 1px solid var(--border);
+      border-radius: var(--r-md); padding: 12px 16px;
+      margin-top: 40px; line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ─────────────────────────────────────────────── -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="SIRAJ CSC — Home">
+        <img src="assets/brand/siraj-csc-logo.jpg" alt="SIRAJ CSC ಸಾಮಾನ್ಯ ಸೇವಾ ಕೇಂದ್ರ" class="nav-logo-img"
+             id="nav-logo-img"
+             onerror="this.style.display='none';document.getElementById('nav-logo-fb').style.display='flex';" />
+        <div class="nav-logo-fallback" id="nav-logo-fb">
+          <span class="l-name">SIRAJ CSC</span>
+          <span class="l-tag">ಸಾಮಾನ್ಯ ಸೇವಾ ಕೇಂದ್ರ</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="index.html"      class="nav-link active" aria-current="page">Home</a>
+        <a href="services.html"   class="nav-link">Services</a>
+        <a href="insurance.html"  class="nav-link">Insurance</a>
+        <a href="technology.html" class="nav-link">Technology</a>
+        <a href="about.html"      class="nav-link">About</a>
+        <a href="contact.html"    class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <a href="tel:8073011337" class="nav-phone">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          8073011337
+        </a>
+        <a href="https://wa.me/918073011337?text=Hello%20SIRAJ%20CSC" class="btn btn-whatsapp btn-sm nav-cta" target="_blank" rel="noopener noreferrer" id="nav-wa-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
+    <a href="index.html"      class="nav-link active">Home</a>
+    <a href="services.html"   class="nav-link">Services</a>
+    <a href="insurance.html"  class="nav-link">Insurance</a>
+    <a href="technology.html" class="nav-link">Technology</a>
+    <a href="about.html"      class="nav-link">About</a>
+    <a href="contact.html"    class="nav-link">Contact</a>
+    <a href="https://wa.me/918073011337" class="btn btn-whatsapp wa-drawer-btn" target="_blank" rel="noopener noreferrer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      WhatsApp 8073011337
+    </a>
+  </nav>
+
+  <!-- Floating WhatsApp FAB -->
+  <a href="https://wa.me/918073011337" class="wa-fab" id="wa-fab" aria-label="WhatsApp SIRAJ CSC" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+
+  <main id="main-content">
+
+    <!-- ── HERO ─────────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-heading">
+
+      <!-- Left Column -->
+      <div class="hero-left">
+        <div class="container-hero" style="padding: 0 32px 0 48px; max-width:600px; width:100%;">
+
+          <span class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            CSC Registered Operator · Kalaburagi, Karnataka
+          </span>
+
+          <div class="hero-logo-wrap">
+            <img src="assets/brand/siraj-csc-logo.jpg" alt="SIRAJ CSC" class="hero-logo" id="hero-logo"
+                 onerror="this.style.display='none';document.getElementById('hero-logo-fb').style.display='flex';" />
+            <div class="hero-logo-text-fallback" id="hero-logo-fb" style="display:none;">
+              <span class="ln">SIRAJ CSC</span>
+              <span class="lt">ಸಾಮಾನ್ಯ ಸೇವಾ ಕೇಂದ್ರ</span>
+            </div>
+          </div>
+
+          <h1 id="hero-heading">Digital Services<br/><em>Made Simple</em></h1>
+
+          <p class="hero-sub">Government, document, banking, insurance and digital services — all under one roof at your trusted neighbourhood SIRAJ CSC in Kalaburagi.</p>
+
+          <div class="hero-ctas">
+            <a href="services.html" class="btn btn-primary btn-lg" id="hero-explore-btn">
+              Explore Services
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="https://wa.me/918073011337?text=Hello%20SIRAJ%20CSC%2C%20I%20need%20service%20assistance" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer" id="hero-wa-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              WhatsApp Us
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="hero-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ring Road, NH50, Kalaburagi
+            </span>
+            <span class="hero-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Walk-in & WhatsApp
+            </span>
+            <span class="hero-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              8073011337
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column — Visual Composition -->
+      <div class="hero-right">
+        <div class="hero-composition" style="margin: 0 32px;">
+
+          <!-- Floating stat top-left -->
+          <div class="hc-stat hc-stat--tl reveal reveal-delay-2">
+            <div class="hc-stat-val">20+</div>
+            <div class="hc-stat-lbl">Services</div>
+          </div>
+
+          <!-- Main vehicle card (motorcycle from poster) -->
+          <div class="hc-vehicle reveal reveal-delay-1">
+            <div class="hc-vehicle-img">
+              <img src="assets/vehicles/hero-vehicles.jpg"
+                   class="hc-vehicle-img-real"
+                   alt="SIRAJ CSC vehicle insurance — motorcycle and car from insurance poster"
+                   loading="eager" />
+            </div>
+            <div class="hc-vehicle-body">
+              <div class="hc-vehicle-tag">Vehicle Insurance</div>
+              <div class="hc-vehicle-name">All Vehicle Types</div>
+              <div class="hc-vehicle-desc">2W · 3W · 4W · Commercial · Heavy</div>
+              <div class="hc-services">
+                <span class="hc-svc-pill">IFFCO-TOKIO</span>
+                <span class="hc-svc-pill">HDFC ERGO</span>
+                <span class="hc-svc-pill">ICICI Lombard</span>
+                <span class="hc-svc-pill">+7 More</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating stat bottom-right -->
+          <div class="hc-stat hc-stat--br reveal reveal-delay-3">
+            <div class="hc-stat-val" style="color:var(--green);">AEPS</div>
+            <div class="hc-stat-lbl">Cash Withdrawal</div>
+          </div>
+
+          <!-- Service pills strip below card -->
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;" class="reveal reveal-delay-4">
+            <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;">Aadhaar</span>
+            <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;">PAN Card</span>
+            <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;">IRCTC</span>
+            <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;">Passport</span>
+            <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;">e-Shram</span>
+            <span style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;">Ayushman</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICE STRIP ──────────────────────────────────────────── -->
+    <section class="svc-strip" aria-label="Services quick reference">
+      <div class="container">
+        <div class="svc-strip-scroll">
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Aadhaar Services</span>
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/></svg>PAN Card</span>
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>AEPS Banking</span>
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Insurance</span>
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>IRCTC</span>
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Passport</span>
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>Scholarships</span>
+          <span class="svc-strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>e-Shram · Ayushman</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── POPULAR SERVICES ───────────────────────────────────────── -->
+    <section class="section section-white" id="services-section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="sec-header sec-header--split">
+          <div>
+            <div class="t-label">Most Used Services</div>
+            <h2 class="t-h2" id="services-heading" style="margin-top:10px;">What Can We Help With?</h2>
+            <p class="t-body" style="margin-top:10px;">Quick access to our most requested services. Walk in or WhatsApp for any of these.</p>
+          </div>
+          <a href="services.html" class="sec-more">
+            All Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+        <div class="svc-grid">
+
+          <div class="svc-card reveal" id="qc-aadhaar">
+            <div class="svc-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="12" y2="15"/></svg>
+            </div>
+            <h3>Aadhaar Services</h3>
+            <p>Enrollment, update, name/address/mobile correction through CSC Aadhaar platform.</p>
+            <a href="https://wa.me/918073011337?text=I%20need%20Aadhaar%20service" class="svc-card-cta" target="_blank" rel="noopener noreferrer">
+              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+
+          <div class="svc-card reveal reveal-delay-1" id="qc-pan">
+            <div class="svc-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><line x1="13" y1="9" x2="19" y2="9"/><line x1="13" y1="13" x2="17" y2="13"/></svg>
+            </div>
+            <h3>PAN Card Services</h3>
+            <p>New PAN application and correction through the authorised CSC platform.</p>
+            <a href="contact.html" class="svc-card-cta">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+
+          <div class="svc-card svc-card--green reveal reveal-delay-2" id="qc-aeps">
+            <div class="svc-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="14" x2="9" y2="14"/></svg>
+            </div>
+            <h3>AEPS Banking</h3>
+            <p>Aadhaar-enabled cash withdrawal from any linked bank using biometric auth.</p>
+            <a href="https://wa.me/918073011337?text=I%20need%20AEPS%20cash%20withdrawal" class="svc-card-cta" target="_blank" rel="noopener noreferrer">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+
+          <div class="svc-card svc-card--orange reveal reveal-delay-3" id="qc-insurance">
+            <div class="svc-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Vehicle Insurance</h3>
+            <p>Insurance for 2W, 3W, 4W and heavy vehicles through 10+ insurance providers.</p>
+            <a href="insurance.html" class="svc-card-cta">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+
+          <div class="svc-card reveal" id="qc-irctc">
+            <div class="svc-card-icon">
+              <img src="assets/services/irctc.jpg" class="svc-icon-img" alt="IRCTC Train Booking" loading="lazy"
+                   onerror="this.parentElement.innerHTML='&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;&gt;&lt;rect x=&quot;1&quot; y=&quot;6&quot; width=&quot;22&quot; height=&quot;12&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2&quot;/&gt;&lt;line x1=&quot;1&quot; y1=&quot;14&quot; x2=&quot;23&quot; y2=&quot;14&quot;/&gt;&lt;/svg&gt;'" />
+            </div>
+            <h3>IRCTC Booking</h3>
+            <p>Train ticket reservation and IRCTC booking assistance through CSC platform.</p>
+            <a href="https://wa.me/918073011337?text=I%20need%20train%20ticket%20booking" class="svc-card-cta" target="_blank" rel="noopener noreferrer">Book Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+
+          <div class="svc-card reveal reveal-delay-1" id="qc-passport">
+            <div class="svc-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="10" cy="15" r="2"/></svg>
+            </div>
+            <h3>Passport Services</h3>
+            <p>Fresh passport application, renewal, and appointment booking through CSC.</p>
+            <a href="contact.html" class="svc-card-cta">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+
+          <div class="svc-card reveal reveal-delay-2" id="qc-eshram">
+            <div class="svc-card-icon">
+              <img src="assets/services/eshram.jpg" class="svc-icon-img" alt="e-Shram Card" loading="lazy"
+                   onerror="this.parentElement.innerHTML='&lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot;&gt;&lt;rect x=&quot;2&quot; y=&quot;7&quot; width=&quot;20&quot; height=&quot;14&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M16 7V5a2 2 0 0 0-4 0v2&quot;/&gt;&lt;/svg&gt;'" />
+            </div>
+            <h3>e-Shram &amp; Ayushman</h3>
+            <p>e-Shram card registration and PM-JAY Ayushman Bharat health card services.</p>
+            <a href="contact.html" class="svc-card-cta">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+
+          <div class="svc-card reveal reveal-delay-3" id="qc-certs">
+            <div class="svc-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Certificates</h3>
+            <p>Income, Caste, Birth, Domicile certificates through Karnataka e-District portal.</p>
+            <a href="contact.html" class="svc-card-cta">Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px;">
+          <a href="services.html" class="btn btn-secondary btn-lg" id="home-all-svc-btn">View All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INSURANCE + QUICK PROMO ────────────────────────────────── -->
+    <section class="section section-light" id="insurance-preview" aria-labelledby="ins-prev-heading">
+      <div class="container">
+        <div class="sec-header">
+          <div class="t-label t-label--orange">Vehicle Insurance</div>
+          <h2 class="t-h2" id="ins-prev-heading" style="margin-top:10px;">Insurance for All Vehicle Types</h2>
+          <p class="t-body" style="margin-top:10px;">2 Wheeler · 3 Wheeler · 4 Wheeler · Commercial · Heavy Vehicle</p>
+        </div>
+
+        <!-- 4 vehicle cards from insurance poster CSS crops -->
+        <div class="ins-preview">
+
+          <div class="veh-card reveal" id="veh-bike">
+            <div class="veh-img vi-bike">
+              <img src="assets/vehicles/bike.jpg"
+                   alt="Red motorcycle — two wheeler insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">2 Wheeler</span>
+              <h3>Two Wheeler</h3>
+              <p>Motorcycles and scooters — third party mandatory cover or comprehensive.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20two%20wheeler%20insurance%20quote" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="veh-bike-btn">Get Quote</a>
+            </div>
+          </div>
+
+          <div class="veh-card reveal reveal-delay-1" id="veh-auto">
+            <div class="veh-img vi-auto">
+              <img src="assets/vehicles/auto.jpg"
+                   alt="Yellow auto-rickshaw — three wheeler insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">3 Wheeler</span>
+              <h3>Three Wheeler</h3>
+              <p>Auto-rickshaws — commercial passenger vehicle insurance cover.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20three%20wheeler%20insurance%20quote" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="veh-auto-btn">Get Quote</a>
+            </div>
+          </div>
+
+          <div class="veh-card reveal reveal-delay-2" id="veh-car">
+            <div class="veh-img vi-car">
+              <img src="assets/vehicles/car.jpg"
+                   alt="Maruti Swift white car — four wheeler insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">4 Wheeler</span>
+              <h3>Four Wheeler</h3>
+              <p>Private cars and personal vehicles — comprehensive and third party options.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20four%20wheeler%20insurance%20quote" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="veh-car-btn">Get Quote</a>
+            </div>
+          </div>
+
+          <div class="veh-card reveal reveal-delay-3" id="veh-heavy">
+            <div class="veh-img vi-heavy">
+              <img src="assets/vehicles/heavy.jpg"
+                   alt="Commercial vehicle — goods carrier and heavy vehicle insurance SIRAJ CSC"
+                   loading="lazy" />
+            </div>
+            <div class="veh-body">
+              <span class="veh-tag">Commercial &amp; Heavy</span>
+              <h3>Commercial &amp; Heavy</h3>
+              <p>Trucks, lorries, pickups — complete cover for goods and passenger transport.</p>
+              <a href="https://wa.me/918073011337?text=I%20need%20commercial%20vehicle%20insurance%20quote" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener noreferrer" id="veh-heavy-btn">Get Quote</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:36px;">
+          <a href="insurance.html" class="btn btn-primary btn-lg" id="home-ins-btn">Full Insurance Page</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AEPS CALLOUT ───────────────────────────────────────────── -->
+    <section class="section section-white" aria-label="AEPS banking callout">
+      <div class="container">
+        <div class="aeps-callout reveal">
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:10px;">AEPS · Banking Services</div>
+            <h3>Need Cash? Use AEPS Withdrawal</h3>
+            <p style="margin-top:8px;">Withdraw cash from your bank using your Aadhaar number and fingerprint — no ATM card needed. Any linked bank account works.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap;">
+            <a href="https://wa.me/918073011337?text=I%20need%20AEPS%20cash%20withdrawal" class="btn btn-ghost btn-lg" target="_blank" rel="noopener noreferrer" id="home-aeps-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              WhatsApp for AEPS
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRUST (WHY SIRAJ CSC) ──────────────────────────────────── -->
+    <section class="section section-navy" id="why-us" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="sec-header text-center" style="margin-bottom:40px;">
+          <div class="t-label t-label--light">Why Choose SIRAJ CSC</div>
+          <h2 class="t-h2 text-white" id="why-heading" style="margin-top:10px;">Your Neighbourhood Digital Service Centre</h2>
+          <p style="color:rgba(255,255,255,0.6);margin-top:10px;max-width:520px;margin-left:auto;margin-right:auto;font-size:15px;">An authorised CSC operator making government and digital services accessible to everyone in Kalaburagi.</p>
+        </div>
+        <div class="trust-grid">
+
+          <div class="trust-card reveal">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>CSC Registered</h3>
+            <p>Authorised operator under CSC e-Governance Services India Limited (MeitY).</p>
+          </div>
+
+          <div class="trust-card reveal reveal-delay-1">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Local &amp; Accessible</h3>
+            <p>Walk-in centre on Ring Road, NH50, Kalaburagi — convenient location for all.</p>
+          </div>
+
+          <div class="trust-card reveal reveal-delay-2">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <h3>Multiple Services</h3>
+            <p>20+ government, banking, insurance, and digital services under one roof.</p>
+          </div>
+
+          <div class="trust-card reveal reveal-delay-3">
+            <div class="trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3>Fast Response</h3>
+            <p>WhatsApp 8073011337 for quick response on any service enquiry.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ───────────────────────────────────────────── -->
+    <section class="section section-deep" id="how-it-works" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="sec-header text-center" style="margin-bottom:40px;">
+          <div class="t-label t-label--light">Process</div>
+          <h2 class="t-h2 text-white" id="how-heading" style="margin-top:10px;">How to Get Your Service Done</h2>
+        </div>
+        <div class="steps">
+          <div class="step-card reveal">
+            <div class="step-num">1</div>
+            <h3>Contact or Visit</h3>
+            <p>WhatsApp 8073011337 or walk in to our Ring Road centre in Kalaburagi.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-1">
+            <div class="step-num">2</div>
+            <h3>Tell Us Your Need</h3>
+            <p>Let us know which service you need — Aadhaar, PAN, Insurance, Certificate, etc.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-2">
+            <div class="step-num">3</div>
+            <h3>Submit Documents</h3>
+            <p>Bring or send required documents. We'll guide you on exactly what's needed.</p>
+          </div>
+          <div class="step-card reveal reveal-delay-3">
+            <div class="step-num">4</div>
+            <h3>Get It Done</h3>
+            <p>We process your service through the official CSC platform and deliver the output.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA ──────────────────────────────────────────────── -->
+    <section class="section section-white" id="contact-cta" aria-labelledby="cta-heading">
+      <div class="container" style="max-width:900px;">
+        <div style="text-align:center;margin-bottom:40px;">
+          <div class="t-label" style="display:inline-flex;margin-bottom:16px;">Ready to Get Started?</div>
+          <h2 class="t-h2" id="cta-heading" style="margin-bottom:12px;">Visit SIRAJ CSC or WhatsApp Us</h2>
+          <p class="t-body" style="max-width:480px;margin:0 auto;">Walk-in or send us a WhatsApp message. We respond quickly and guide you through every step.</p>
+        </div>
+
+        <div class="cta-contact-grid" style="grid-template-columns:1fr;" >
+          <div style="display:grid;gap:16px;grid-template-columns:1fr;" id="cta-cards">
+            <!-- Rendered as 3 columns on wider screens via inline media query -->
+          </div>
+        </div>
+
+        <!-- Contact cards row -->
+        <div style="display:grid;gap:16px;grid-template-columns:1fr;max-width:840px;margin:0 auto 36px;" id="cta-grid">
+          <div class="cta-card" style="background:var(--light-grey);border-color:var(--border);" id="cta-wa">
+            <div class="cta-icon" style="background:rgba(15,143,92,0.1);color:var(--green);">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </div>
+            <div class="cta-lbl" style="color:var(--green);">WhatsApp</div>
+            <div class="cta-val" style="color:var(--text-dk);"><a href="https://wa.me/918073011337" target="_blank" rel="noopener noreferrer" style="color:var(--green);">8073011337</a></div>
+            <div class="cta-sub" style="color:var(--text-lt);">Fastest response — chat anytime</div>
+          </div>
+        </div>
+
+        <style>
+          @media(min-width:640px) {
+            #cta-grid { grid-template-columns: repeat(3,1fr) !important; }
+          }
+        </style>
+
+        <!-- Add 2 more cards via JS / static HTML -->
+        <div style="display:grid;gap:16px;grid-template-columns:1fr;max-width:840px;margin:0 auto 36px;" class="cta-contact-grid">
+          <div class="cta-card" style="background:var(--light-grey);border-color:var(--border);" id="cta-phone">
+            <div class="cta-icon" style="background:rgba(23,59,120,0.08);color:var(--navy);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.95-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="cta-lbl" style="color:var(--text-xs);">Phone</div>
+            <div class="cta-val" style="color:var(--text-dk);"><a href="tel:8073011337">8073011337</a></div>
+            <div class="cta-sub" style="color:var(--text-lt);">Call during business hours</div>
+          </div>
+          <div class="cta-card" style="background:var(--light-grey);border-color:var(--border);" id="cta-visit">
+            <div class="cta-icon" style="background:rgba(23,59,120,0.08);color:var(--navy);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="cta-lbl" style="color:var(--text-xs);">Location</div>
+            <div class="cta-val" style="color:var(--text-dk);font-size:13px;">Ring Road, NH50, Kalaburagi</div>
+            <div class="cta-sub" style="color:var(--text-lt);">Shop No. 2, Beside Taha Bakery</div>
+          </div>
+        </div>
+
+        <div style="text-align:center;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="https://wa.me/918073011337?text=Hello%20SIRAJ%20CSC" class="btn btn-whatsapp btn-xl" target="_blank" rel="noopener noreferrer" id="home-final-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            WhatsApp 8073011337
+          </a>
+          <a href="contact.html" class="btn btn-secondary btn-xl" id="home-final-contact">Visit &amp; Location</a>
+        </div>
+
+        <p class="brand-note">SIRAJ CSC is a private digital-service business operating as an authorised CSC operator. Not a government department. Insurance services are assistance-based — we are not an insurer agent or official partner of any insurance company.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-main">
+        <div>
+          <img src="assets/brand/siraj-csc-logo.jpg" alt="SIRAJ CSC" class="footer-logo-img" onerror="this.style.display='none';" />
+          <p class="footer-tagline">ಸಾಮಾನ್ಯ ಸೇವಾ ಕೇಂದ್ರ<br/>Your Trusted Neighbourhood Kiosk</p>
+          <div class="footer-addr">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Shop No. 2, Ring Road, NH50,<br/>Kalaburagi – 585104, Karnataka
+          </div>
+          <div class="footer-tel"><a href="tel:8073011337">8073011337</a></div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html"          class="footer-link">All Services</a></li>
+            <li><a href="insurance.html"         class="footer-link">Vehicle Insurance</a></li>
+            <li><a href="services.html#banking"  class="footer-link">Banking &amp; AEPS</a></li>
+            <li><a href="services.html#documents"class="footer-link">Documents</a></li>
+            <li><a href="services.html#irctc"    class="footer-link">IRCTC Booking</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html"      class="footer-link">About SIRAJ CSC</a></li>
+            <li><a href="technology.html" class="footer-link">Technology</a></li>
+            <li><a href="contact.html"    class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="terms.html"   class="footer-link">Terms of Use</a></li>
+            <li><a href="mailto:info@sirajcsc.com" class="footer-link">info@sirajcsc.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 SIRAJ CSC. All rights reserved. Kalaburagi, Karnataka, India.</p>
+        <p class="footer-notice">CSC Registered Operator — Services via CSC e-Governance Services India Limited</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // 3-col CTA grid on desktop
+    var cg = document.getElementById('cta-grid');
+    var ctaGrid2 = document.querySelector('.cta-contact-grid:last-of-type');
+    function layoutCTAGrid() {
+      if (window.innerWidth >= 640) {
+        [cg, ctaGrid2].forEach(function(g){if(g){g.style.gridTemplateColumns='repeat(3,1fr)';}});
+      } else {
+        [cg, ctaGrid2].forEach(function(g){if(g){g.style.gridTemplateColumns='1fr';}});
+      }
+    }
+    layoutCTAGrid();
+    window.addEventListener('resize', layoutCTAGrid);
+  </script>
+</body>
+</html>
